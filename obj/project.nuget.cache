@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4xsabFcnc635z2U8ewdZFV/e5M5W1lIrTssW16DpnYOe+08rrIPJMy9N3nyrAgci/H5B9VLu+JLznwiuA3NA7Q==",
+  "dgSpecHash": "pjwNKgcOW40TSq0k2K1yhrARAPNpqe8mZ2UWnJowiGLuMcCB1qok6fPmEuUp7hJl6YDY74tGZt1BLowuwz/n+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucia\\source\\repos\\APINotificacionesV2\\APINotificacionesV2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lucia\\.nuget\\packages\\awssdk.core\\3.7.303.5\\awssdk.core.3.7.303.5.nupkg.sha512",
+    "C:\\Users\\lucia\\.nuget\\packages\\awssdk.secretsmanager\\3.3.103\\awssdk.secretsmanager.3.3.103.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\firebaseadmin\\2.4.0\\firebaseadmin.2.4.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\google.api.gax\\3.2.0\\google.api.gax.3.2.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\google.api.gax.rest\\3.2.0\\google.api.gax.rest.3.2.0.nupkg.sha512",
@@ -11,6 +13,7 @@
     "C:\\Users\\lucia\\.nuget\\packages\\google.apis.auth\\1.49.0\\google.apis.auth.1.49.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\google.apis.core\\1.49.0\\google.apis.core.1.49.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\lucia\\.nuget\\packages\\kralizek.extensions.configuration.awssecretsmanager\\1.7.0\\kralizek.extensions.configuration.awssecretsmanager.1.7.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.3\\microsoft.aspnetcore.authentication.jwtbearer.6.0.3.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
@@ -25,6 +28,7 @@
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.0\\microsoft.extensions.caching.memory.6.0.0.nupkg.sha512",
+    "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.configuration\\2.0.1\\microsoft.extensions.configuration.2.0.1.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
@@ -62,5 +66,16 @@
     "C:\\Users\\lucia\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Se detectó una versión del paquete fuera de la restricción de dependencia: AWSSDK.SecretsManager 3.3.103 requiere AWSSDK.Core (>= 3.3.107.23 && < 3.4.0), pero la versión AWSSDK.Core 3.7.303.5 ya se resolvió.",
+      "libraryId": "AWSSDK.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

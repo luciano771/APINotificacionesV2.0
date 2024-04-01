@@ -13,20 +13,50 @@ namespace APINotificacionesV2.Services
 {
     public class NotificationService
     {
-
-
-        public static Task FirebaseInstance()
+        public static async Task<string> WriteTempJsonFile()
         {
-            if (FirebaseApp.DefaultInstance == null)
+            string secretJson = await APINotificacionesV2.ExternalServices.KMSFunctions.getSecretFirebase();
+            string tempFilePath = Path.GetTempFileName();
+            File.WriteAllText(tempFilePath, secretJson);
+            return tempFilePath;
+        }
+
+        public static  void DeleteTempJsonFile(string tempFilePath)
+        {
+            if (File.Exists(tempFilePath))
             {
-                FirebaseApp.Create(new AppOptions()
+                 File.Delete(tempFilePath);
+            }
+        }
+
+        public static async Task FirebaseInstance()
+        {
+            //Como se espera que se le pase una ruta con el json, escribimos en un archivo el secret json y luego lo borramos.
+
+            string tempFilePath = await WriteTempJsonFile();
+
+            try
+            {
+                if (FirebaseApp.DefaultInstance == null)
                 {
-                    Credential = GoogleCredential.FromFile("private_key.json")
-                });
+                    FirebaseApp.Create(new AppOptions()
+                    {
+                        Credential = GoogleCredential.FromFile(tempFilePath)
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                File.Delete(tempFilePath);
             }
 
-            return Task.CompletedTask;
+             
         }
+
 
         public static async Task<String> SendNotification(Notificaciones notificationes)
         {

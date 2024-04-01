@@ -1,4 +1,5 @@
-﻿using APINotificacionesV2.Models.Entities;
+﻿using APINotificacionesV2.ExternalServices;
+using APINotificacionesV2.Models.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -7,11 +8,12 @@ using System.Text;
 namespace APINotificacionesV2.Authentication
 {
     public class Authentication
-    {
-        public static string GenerateToken(Usuarios users, IConfiguration _config)
+    { 
+        public static async Task<string> GenerateToken(Usuarios users, IConfiguration _config)
         {
+            var secret = await APINotificacionesV2.ExternalServices.KMSFunctions.GetSecretToken();
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
@@ -29,7 +31,7 @@ namespace APINotificacionesV2.Authentication
             signingCredentials: credentials
            );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return await Task.FromResult(new JwtSecurityTokenHandler().WriteToken(token));
         }
     }
 }

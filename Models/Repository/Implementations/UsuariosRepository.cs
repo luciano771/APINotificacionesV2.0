@@ -45,7 +45,7 @@ namespace APINotificacionesV2.Models.Repository.Implementations
         }
 
         public Task<IQueryable<Usuarios>> GetAll()
-        {
+        { 
             var usuariosQuery = _dbContext.Usuarios.AsQueryable();
             return Task.FromResult(usuariosQuery);
         }

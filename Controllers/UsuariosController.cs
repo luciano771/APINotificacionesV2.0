@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using APINotificacionesV2.Models.Entities;
 using APINotificacionesV2.Models.Repository.IRepository;
+using Microsoft.Extensions.Options;
+using APINotificacionesV2.Configuration;
+
 namespace APINotificacionesV2.Controllers
 {
     [Route("api/[controller]")]
@@ -9,8 +12,7 @@ namespace APINotificacionesV2.Controllers
     {
         private readonly IRepository<Usuarios> _UsuariosRepository;
         private readonly IConfiguration _config;
-
-        public UsuariosController(IRepository<Usuarios> UsuariosRepository, IConfiguration config)
+        public UsuariosController(IRepository<Usuarios> UsuariosRepository, IConfiguration config, IOptions<DatabaseSettings> databaseSettings)
         {
             _UsuariosRepository = UsuariosRepository; 
             _config = config;
@@ -34,7 +36,7 @@ namespace APINotificacionesV2.Controllers
             return Ok(usuario);
         }
 
-         
+        
 
         [HttpPost]
         [Route("Login")]
@@ -46,7 +48,7 @@ namespace APINotificacionesV2.Controllers
                 return StatusCode(StatusCodes.Status404NotFound, new { Message = "Usuario debe registrarse" });
             }
 
-            var token = Authentication.Authentication.GenerateToken(usuario, _config);
+            var token = Authentication.Authentication.GenerateToken(usuario, _config).Result;
             return Ok(new { Token = token, Nombre = usuario.NombreUsuario, Email = usuario.NombreUsuario });
 
         }

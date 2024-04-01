@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AWSSDK.Core/3.7.303.5": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.SecretsManager/3.3.103": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.107.23, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "FirebaseAdmin/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -115,6 +144,24 @@
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Kralizek.Extensions.Configuration.AWSSecretsManager/1.7.0": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.SecretsManager": "3.3.103",
+          "Microsoft.Extensions.Configuration": "2.0.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Kralizek.Extensions.Configuration.AWSSecretsManager.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Kralizek.Extensions.Configuration.AWSSecretsManager.dll": {
+            "related": ".pdb"
           }
         }
       },
@@ -357,6 +404,22 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
             "related": ".xml"
           }
         }
@@ -1011,6 +1074,75 @@
     }
   },
   "libraries": {
+    "AWSSDK.Core/3.7.303.5": {
+      "sha512": "IkjyAhd502f87j+MG8G+ENnKsNpB6Rq7aUUxS58VeMOrglT6jX9Y8FALiR6JHpmxphLSAEBzTw1NlWDC2fuZog==",
+      "type": "package",
+      "path": "awssdk.core/3.7.303.5",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.3.7.303.5.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "images/AWSLogo.png",
+        "lib/net35/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.pdb",
+        "lib/net35/AWSSDK.Core.xml",
+        "lib/net45/AWSSDK.Core.dll",
+        "lib/net45/AWSSDK.Core.pdb",
+        "lib/net45/AWSSDK.Core.xml",
+        "lib/net8.0/AWSSDK.Core.dll",
+        "lib/net8.0/AWSSDK.Core.pdb",
+        "lib/net8.0/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.SecretsManager/3.3.103": {
+      "sha512": "C1QLLawbAJuOBTiDhTDteJ4ox7zAg/n2UmKBj2+I83Zy/k/9CxFUeRplML/FqUXQPqIsN7om9VCWbFd/A3sLVw==",
+      "type": "package",
+      "path": "awssdk.secretsmanager/3.3.103",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SecretsManager.CodeAnalysis.dll",
+        "awssdk.secretsmanager.3.3.103.nupkg.sha512",
+        "awssdk.secretsmanager.nuspec",
+        "lib/MonoAndroid10/AWSSDK.SecretsManager.XML",
+        "lib/MonoAndroid10/AWSSDK.SecretsManager.dll",
+        "lib/MonoTouch10/AWSSDK.SecretsManager.XML",
+        "lib/MonoTouch10/AWSSDK.SecretsManager.dll",
+        "lib/MonoTouch10/AWSSDK.SecretsManager.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.SecretsManager.XML",
+        "lib/Xamarin.iOS10/AWSSDK.SecretsManager.dll",
+        "lib/net35/AWSSDK.SecretsManager.dll",
+        "lib/net35/AWSSDK.SecretsManager.pdb",
+        "lib/net35/AWSSDK.SecretsManager.xml",
+        "lib/net45/AWSSDK.SecretsManager.dll",
+        "lib/net45/AWSSDK.SecretsManager.pdb",
+        "lib/net45/AWSSDK.SecretsManager.xml",
+        "lib/netstandard1.3/AWSSDK.SecretsManager.dll",
+        "lib/netstandard1.3/AWSSDK.SecretsManager.pdb",
+        "lib/netstandard1.3/AWSSDK.SecretsManager.xml",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.dll",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.pdb",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SecretsManager.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SecretsManager.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SecretsManager.pdb",
+        "lib/uap/AWSSDK.SecretsManager.XML",
+        "lib/uap/AWSSDK.SecretsManager.dll",
+        "lib/uap/AWSSDK.SecretsManager.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "FirebaseAdmin/2.4.0": {
       "sha512": "0O89+8oFnHys8TPsk6af0nqcthedok4R467q/tQ/mUyKsXgG45fu1U0acnkKpOGSXT+550cyFfcUj5QlicoOvg==",
       "type": "package",
@@ -1148,6 +1280,19 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Kralizek.Extensions.Configuration.AWSSecretsManager/1.7.0": {
+      "sha512": "orZ2JIhTq0oarR4zLw8uRkhG3840DAIS1yY/b6BIwx9XjvN91FI/ZRGlR1Tk6uvDvJnfcs/G1i0Y7bcD7u7RSw==",
+      "type": "package",
+      "path": "kralizek.extensions.configuration.awssecretsmanager/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kralizek.extensions.configuration.awssecretsmanager.1.7.0.nupkg.sha512",
+        "kralizek.extensions.configuration.awssecretsmanager.nuspec",
+        "lib/netstandard2.0/Kralizek.Extensions.Configuration.AWSSecretsManager.dll",
+        "lib/netstandard2.0/Kralizek.Extensions.Configuration.AWSSecretsManager.pdb"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.3": {
@@ -1448,6 +1593,19 @@
         "microsoft.extensions.caching.memory.6.0.0.nupkg.sha512",
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration/2.0.1": {
+      "sha512": "d9fFoEYRaBccu/Z2B2BZCil/lEnmoVQ8YiY1dGViERh0qWjixgR9y/M7EGaoTrAunnmvAmfwxuij/gCq6WvL1w==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.2.0.1.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
@@ -2467,7 +2625,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AWSSDK.Core >= 3.7.303.5",
       "FirebaseAdmin >= 2.4.0",
+      "Kralizek.Extensions.Configuration.AWSSecretsManager >= 1.7.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.3",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
@@ -2523,9 +2683,17 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AWSSDK.Core": {
+            "target": "Package",
+            "version": "[3.7.303.5, )"
+          },
           "FirebaseAdmin": {
             "target": "Package",
             "version": "[2.4.0, )"
+          },
+          "Kralizek.Extensions.Configuration.AWSSecretsManager": {
+            "target": "Package",
+            "version": "[1.7.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -2582,5 +2750,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Se detectó una versión del paquete fuera de la restricción de dependencia: AWSSDK.SecretsManager 3.3.103 requiere AWSSDK.Core (>= 3.3.107.23 && < 3.4.0), pero la versión AWSSDK.Core 3.7.303.5 ya se resolvió.",
+      "libraryId": "AWSSDK.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
