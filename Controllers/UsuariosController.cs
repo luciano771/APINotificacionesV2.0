@@ -3,6 +3,7 @@ using APINotificacionesV2.Models.Entities;
 using APINotificacionesV2.Models.Repository.IRepository;
 using Microsoft.Extensions.Options;
 using APINotificacionesV2.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APINotificacionesV2.Controllers
 {
@@ -20,7 +21,7 @@ namespace APINotificacionesV2.Controllers
          
 
         [HttpGet]
-
+        [Authorize]
         public async Task<ActionResult> GetUsuarios()
         {
             var usuarios = await _UsuariosRepository.GetAll();
@@ -29,7 +30,7 @@ namespace APINotificacionesV2.Controllers
 
     
         [HttpGet("{nombre}")]
-
+        [Authorize]
         public async Task<ActionResult>  GetUsuarios([FromQuery] int UsuarioId)
         {
             var usuario = await _UsuariosRepository.GetById(UsuarioId);

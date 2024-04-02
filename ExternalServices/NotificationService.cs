@@ -1,12 +1,5 @@
-﻿using APINotificacionesV2.Models.Entities;
-using FirebaseAdmin;
+﻿using FirebaseAdmin;
 using FirebaseAdmin.Messaging;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Google.Apis.Auth.OAuth2;
 
 namespace APINotificacionesV2.Services
@@ -58,7 +51,7 @@ namespace APINotificacionesV2.Services
         }
 
 
-        public static async Task<String> SendNotification(Notificaciones notificationes)
+        public static async Task<string> SendNotification(Notificaciones notificationes)
         {
 
             await FirebaseInstance();

@@ -1,21 +1,12 @@
-﻿using FirebaseAdmin.Messaging;
-using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using APINotificacionesV2.Models.Entities;
 using APINotificacionesV2.Services;
-using static Google.Apis.Requests.BatchRequest;
-using Microsoft.IdentityModel.Tokens;
+
 
 namespace APINotificacionesV2.Controllers
 {
     [Route("api/[controller]")]
-   // [Authorize]
+    [Authorize]
     [ApiController]
     public class NotificacionesController : ControllerBase
     {

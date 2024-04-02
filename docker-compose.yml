@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    image: apinotificacionesv2
+    container_name: mi-apinotificacionesv2
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    ports:
+      - "3131:3131"
+      - "3130:3130"
+    environment:
+      ASPNETCORE_URLS: https://+:3131;http://+:3130
+      ASPNETCORE_Kestrel__Certificates__Default__Password: 4226
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /app/cert.pfx
+
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mi-apinotificacionesv2-db
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "LUCIAno4226"
+    ports:
+      - "1433:1433"
+    volumes:
+      - c:/sql/2019:/var/opt/mssql/data
+      - c:/sql/2019:/var/opt/mssql/log
+      - c:/sql/2019:/var/opt/mssql/secrets

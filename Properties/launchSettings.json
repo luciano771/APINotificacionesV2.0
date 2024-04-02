@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "API": {
+    "APINotificacionV2": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

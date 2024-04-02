@@ -2,12 +2,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /source
 COPY . .
-RUN dotnet restore "API.csproj"
-RUN dotnet build "API.csproj" -c Release -o /app/build
+RUN dotnet restore "APINotificacionesV2.csproj"
+RUN dotnet build "APINotificacionesV2.csproj" -c Release -o /app/build
 
 # Publish stage
 FROM build AS publish
-RUN dotnet publish "API.csproj" -c Release -o /app/publish
+RUN dotnet publish "APINotificacionesV2.csproj" -c Release -o /app/publish
 
 # Final stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal AS final
@@ -26,4 +26,7 @@ ENV ASPNETCORE_Kestrel__Certificates__Default__Password=4226
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/app/cert.pfx
 
 # Start the application
-ENTRYPOINT ["dotnet", "API.dll"]
+ENTRYPOINT ["dotnet", "APINotificacionesV2.dll"]
+
+
+

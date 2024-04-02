@@ -1,18 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using APINotificacionesV2.Models.Datos;
 using System.Net;
 using APINotificacionesV2.Models.Repository.IRepository;
 using APINotificacionesV2.Models.Entities;
 using APINotificacionesV2.Models.Repository.Implementations;
-using Amazon.Internal;
 using Amazon;
 using APINotificacionesV2.Configuration;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.DependencyInjection;
-using APINotificacionesV2.ExternalServices;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +19,6 @@ builder.Services.AddScoped<IRepository<Notas>, NotasRepository>();
 
 var env = builder.Environment.EnvironmentName;
 var appName = builder.Environment.ApplicationName;
-
 builder.Configuration.AddSecretsManager(region: RegionEndpoint.USEast1,
     configurator: options => {
         options.SecretFilter = entry => entry.Name.StartsWith($"{env}_{appName}_");
@@ -36,19 +30,16 @@ builder.Configuration.AddSecretsManager(region: RegionEndpoint.USEast1,
 
 
 // Inicio Conexion a la base
-
+//configuro la conexion usando la clase DataseSettings
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(DatabaseSettings.SectionName));
- 
 builder.Services.AddDbContext<DBContext>((serviceProvider, options) =>
 {
-    // Resuelve DatabaseSettings del ServiceProvider
+    //Resuelve DatabaseSettings del ServiceProvider
     var databaseSettings = serviceProvider.GetRequiredService<IOptions<DatabaseSettings>>().Value;
-    // Configura el DbContext con la cadena de conexión
+    //Configura el DbContext con la cadena de conexión
     options.UseSqlServer(databaseSettings.ConnectionString);
     options.LogTo(Console.WriteLine);
 });
-
-
 
 //Fin Conexion a la base
 
@@ -58,27 +49,13 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
+var app = builder.Build();
+
 
  
 
 
-
-
-var app = builder.Build();
-
-
-
-
-
-
-
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-// lo saque del condicional para que funcione en prod y desa
+//lo saque del condicional para que funcione en prod y desa
 app.UseSwagger();
 app.UseSwaggerUI();
 
