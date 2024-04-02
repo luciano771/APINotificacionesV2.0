@@ -14,7 +14,8 @@ services:
       ASPNETCORE_URLS: https://+:3131;http://+:3130
       ASPNETCORE_Kestrel__Certificates__Default__Password: 4226
       ASPNETCORE_Kestrel__Certificates__Default__Path: /app/cert.pfx
-      
+      AWS_ACCESS_KEY_ID: AKIA3RQGXBWZXNWFXMWD
+      AWS_SECRET_ACCESS_KEY: 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
   db:
     image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: mi-apinotificacionesv2-db
