@@ -1,6 +1,0 @@
-﻿FROM mcr.microsoft.com/mssql/server:2019-latest
-
-# Establecer las variables de entorno
-ENV ACCEPT_EULA=Y
-ENV MSSQL_SA_PASSWORD=LUCIAno4226
- 

@@ -24,9 +24,7 @@ EXPOSE 3130
 ENV ASPNETCORE_URLS=https://+:3131;http://+:3130
 ENV ASPNETCORE_Kestrel__Certificates__Default__Password=4226
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/app/cert.pfx
-
+ 
 # Start the application
 ENTRYPOINT ["dotnet", "APINotificacionesV2.dll"]
-
-
 

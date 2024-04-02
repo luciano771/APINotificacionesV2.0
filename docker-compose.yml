@@ -6,7 +6,7 @@ services:
     container_name: mi-apinotificacionesv2
     build:
       context: .
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile
     ports:
       - "3131:3131"
       - "3130:3130"
@@ -14,14 +14,10 @@ services:
       ASPNETCORE_URLS: https://+:3131;http://+:3130
       ASPNETCORE_Kestrel__Certificates__Default__Password: 4226
       ASPNETCORE_Kestrel__Certificates__Default__Path: /app/cert.pfx
-
-
+      
   db:
     image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: mi-apinotificacionesv2-db
-    build:
-      context: .
-      dockerfile: Dockerfile.app
     environment:
       ACCEPT_EULA: "Y"
       MSSQL_SA_PASSWORD: "LUCIAno4226"
