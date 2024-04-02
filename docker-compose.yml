@@ -25,6 +25,6 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - c:/sql/2019:/var/opt/mssql/data
-      - c:/sql/2019:/var/opt/mssql/log
-      - c:/sql/2019:/var/opt/mssql/secrets
+      - /sql/2019:/var/opt/mssql/data
+      - /sql/2019:/var/opt/mssql/log
+      - /sql/2019:/var/opt/mssql/secrets
