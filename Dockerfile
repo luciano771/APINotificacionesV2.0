@@ -15,8 +15,7 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 
 # Copy the certificate and set permissions
-COPY cert.pfx /app
-RUN chmod 777 /app/cert.pfx
+
 
 # Expose ports and set environment variables (la contrasñea de el certificado deveria estar en una varible de entorno en produccion)
 EXPOSE 3131
